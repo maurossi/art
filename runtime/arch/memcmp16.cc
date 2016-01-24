@@ -19,7 +19,10 @@
 // This linked against by assembly stubs, only.
 #pragma GCC diagnostic ignored "-Wunused-function"
 
+#if defined(__aarch64__) || defined(__arm__) || defined(__mips__)
 int32_t memcmp16_generic_static(const uint16_t* s0, const uint16_t* s1, size_t count);
+#endif
+
 int32_t memcmp16_generic_static(const uint16_t* s0, const uint16_t* s1, size_t count) {
   for (size_t i = 0; i < count; i++) {
     if (s0[i] != s1[i]) {
